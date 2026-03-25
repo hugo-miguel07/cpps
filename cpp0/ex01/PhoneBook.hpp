@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 21:36:59 by htavares          #+#    #+#             */
-/*   Updated: 2026/03/24 22:12:26 by htavares         ###   ########.fr       */
+/*   Updated: 2026/03/25 13:03:49 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,17 @@
 class Contact
 {
 	private:
-	std::string name;
-	long number;
+	std::string first_name;
+	std::string last_name;
+	std::string nickname;
+	std::string number;
+	std::string secret;
 
 	public:
-	Contact()
-	{
-		this->name = "";
-		this->number = 0;
-	}
-	Contact(std::string name, long number)
-	{
-		this->name = name;
-		this->number = number;
-	}
+	Contact();
+	Contact(std::string first_name, std::string last_name,
+				std::string nickname, std::string number, std::string secret);
+	~Contact();
 };
 
 class PhoneBook
@@ -42,11 +39,12 @@ class PhoneBook
 	int		contact_idx;
 
 	public:
-	PhoneBook()
-	{
-		this->contact_idx = 0;
-	}
-	void addContact(Contact *contact);
+	PhoneBook();
+	~PhoneBook();
+	void addContact(Contact contact);
+	void add_option();
+	void search_option() const;
+	static std::string parse_number(std::string number);
 };
 
 #endif
