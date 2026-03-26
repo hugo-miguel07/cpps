@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 21:36:59 by htavares          #+#    #+#             */
-/*   Updated: 2026/03/25 13:03:49 by htavares         ###   ########.fr       */
+/*   Updated: 2026/03/26 12:23:07 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include <string>
+# include <iomanip>
+# include <cstdlib>
 
 class Contact
 {
@@ -30,6 +32,11 @@ class Contact
 	Contact(std::string first_name, std::string last_name,
 				std::string nickname, std::string number, std::string secret);
 	~Contact();
+	std::string getFirstName() const;
+	std::string getLastName() const;
+	std::string getNickname() const;
+	std::string getNumber() const;
+	std::string getSecret() const;
 };
 
 class PhoneBook
@@ -45,6 +52,7 @@ class PhoneBook
 	void add_option();
 	void search_option() const;
 	static std::string parse_number(std::string number);
+	static std::string formatColumn(std::string str);
 };
 
 #endif

@@ -34,3 +34,28 @@ Contact::Contact(std::string first_name, std::string last_name,
 	this->number = number;
 	this->secret = secret;
 }
+
+std::string Contact::getFirstName() const
+{
+	return (this->first_name);
+}
+
+std::string Contact::getLastName() const
+{
+	return (this->last_name);
+}
+
+std::string Contact::getNickname() const
+{
+	return (this->nickname);
+}
+
+std::string Contact::getNumber() const
+{
+	return (this->number);
+}
+
+std::string Contact::getSecret() const
+{
+	return (this->secret);
+}

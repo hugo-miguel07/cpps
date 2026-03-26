@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 21:51:25 by htavares          #+#    #+#             */
-/*   Updated: 2026/03/25 13:16:18 by htavares         ###   ########.fr       */
+/*   Updated: 2026/03/26 12:22:48 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,57 @@ std::string PhoneBook::parse_number(std::string number)
 	return (number);
 }
 
+std::string PhoneBook::formatColumn(std::string str)
+{
+	if (str.length() > 10)
+		return (str.substr(0, 9) + ".");
+	return (str);
+}
+
 void PhoneBook::search_option(void) const
 {
-	std::cout << "Procura aí umas cenas" << std::endl;
+	int index;
+	std::string input;
+
+	std::cout << "\n" << std::setw(45) << std::setfill('-') << "" << std::endl;
+	std::cout << std::setfill(' ')
+		<< "|" << std::setw(10) << "INDEX"
+		<< "|" << std::setw(10) << "FIRST NAME"
+		<< "|" << std::setw(10) << "LAST NAME"
+		<< "|" << std::setw(10) << "NICKNAME"
+		<< "|" << std::endl;
+	std::cout << std::setw(45) << std::setfill('-') << "" << std::endl;
+
+	for (int i = 0; i < 8; i++)
+	{
+		if (this->contacts[i].getFirstName().length() == 0)
+			continue;
+		std::cout << std::setfill(' ')
+			<< "|" << std::setw(10) << i
+			<< "|" << std::setw(10) << formatColumn(this->contacts[i].getFirstName())
+			<< "|" << std::setw(10) << formatColumn(this->contacts[i].getLastName())
+			<< "|" << std::setw(10) << formatColumn(this->contacts[i].getNickname())
+			<< "|" << std::endl;
+	}
+	std::cout << std::setw(45) << std::setfill('-') << "" << std::endl;
+	std::cout << "\nIndex to display details: ";
+	getline(std::cin, input);
+	if (input.length() != 1 || !isdigit(input[0]))
+	{
+		std::cout << "Invalid index!" << std::endl;
+		return ;
+	}
+	index = atoi(input.c_str());
+	if (index < 0 || index > 7 || this->contacts[index].getFirstName().length() == 0)
+	{
+		std::cout << "Invalid index!" << std::endl;
+		return ;
+	}
+	std::cout << "\nFirst Name: " << this->contacts[index].getFirstName() << std::endl;
+	std::cout << "Last Name: " << this->contacts[index].getLastName() << std::endl;
+	std::cout << "Nickname: " << this->contacts[index].getNickname() << std::endl;
+	std::cout << "Number: " << this->contacts[index].getNumber() << std::endl;
+	std::cout << "Darkest Secret: " << this->contacts[index].getSecret() << std::endl;
 }
 
 void PhoneBook::add_option(void)
