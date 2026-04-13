@@ -12,6 +12,11 @@
 
 #include "PhoneBook.hpp"
 
+#include <cctype>
+#include <cstdlib>
+#include <iomanip>
+#include <iostream>
+
 PhoneBook::PhoneBook()
 {
 	this->contact_idx = 0;

@@ -12,6 +12,8 @@
 
 #include "PhoneBook.hpp"
 
+#include <iostream>
+
 static void print_options1(void)
 {
 	std::cout << "Welcome to out Awesome PhoneBook 😎" << std::endl;
