@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 17:45:16 by htavares          #+#    #+#             */
-/*   Updated: 2026/04/14 11:28:54 by htavares         ###   ########.fr       */
+/*   Updated: 2026/04/14 14:43:14 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,19 @@
 
 int main(void)
 {
-	Zombie z1 = Zombie("joao");
-	Zombie z2 = Zombie("miguel");
+	int hordeSize = 6;
 
+	Zombie z1 = Zombie("joao");
 	z1.announce();
-	z2.announce();
+
+	Zombie *zHorde = zombieHorde(hordeSize, "cristiano");
+
+	for (int i = 0; i < hordeSize; i++)
+	{
+		zHorde[i].announce();
+	}
 	
+	delete[] zHorde;
 	
 	return (0);
 }
