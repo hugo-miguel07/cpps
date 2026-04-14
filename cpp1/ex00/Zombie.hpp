@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 17:45:55 by htavares          #+#    #+#             */
-/*   Updated: 2026/04/13 17:51:30 by htavares         ###   ########.fr       */
+/*   Updated: 2026/04/14 14:12:38 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,13 @@ class Zombie
 	std::string name;
 	
 	public:
+	Zombie();
+	Zombie(std::string name);
+	~Zombie();
 	void announce(void);
 };
+
+Zombie	*newZombie(std::string name);
+void	randomChump(std::string name);
 
 #endif
