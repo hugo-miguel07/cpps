@@ -6,13 +6,15 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 15:56:11 by htavares          #+#    #+#             */
-/*   Updated: 2026/04/14 16:27:05 by htavares         ###   ########.fr       */
+/*   Updated: 2026/04/14 21:28:07 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include "Weapon.hpp"
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
+# include <iostream>
+# include <string>
+# include "Weapon.hpp"
 
 class HumanA
 {
@@ -21,7 +23,10 @@ class HumanA
 	Weapon weapon;
 	
 	public:
-	HumanA(Weapon weapon, std::string name);
+	HumanA(std::string name, Weapon weapon);
+	~HumanA();
 	void attack();
 	
 };
+
+#endif

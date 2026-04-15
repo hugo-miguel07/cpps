@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 17:45:55 by htavares          #+#    #+#             */
-/*   Updated: 2026/04/14 14:40:35 by htavares         ###   ########.fr       */
+/*   Updated: 2026/04/14 20:55:37 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ZOMBIE_HPP
 
 # include <string>
+#include <iostream>
 
 class Zombie
 {

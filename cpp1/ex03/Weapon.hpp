@@ -6,12 +6,14 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 15:52:33 by htavares          #+#    #+#             */
-/*   Updated: 2026/04/14 16:17:55 by htavares         ###   ########.fr       */
+/*   Updated: 2026/04/14 21:26:52 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
+# include <string>
+# include <iostream>
 
 class Weapon
 {
@@ -25,3 +27,5 @@ class Weapon
 	std::string getType() const;
 	void setType(std::string type);
 };
+
+#endif
