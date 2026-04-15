@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 15:56:16 by htavares          #+#    #+#             */
-/*   Updated: 2026/04/14 21:27:57 by htavares         ###   ########.fr       */
+/*   Updated: 2026/04/15 12:55:58 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class HumanB
 	public:
 	HumanB(std::string name);
 	~HumanB();
-	void attack();
-	void setWeapon(Weapon weapon);
+	void attack() const;
+	void setWeapon(Weapon &weapon);
 };
 
 #endif

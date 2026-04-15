@@ -6,21 +6,21 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 15:54:35 by htavares          #+#    #+#             */
-/*   Updated: 2026/04/14 21:31:10 by htavares         ###   ########.fr       */
+/*   Updated: 2026/04/15 13:12:17 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name) : name(name) {}
+HumanB::HumanB(std::string name) : name(name), weapon(NULL){}
 
 HumanB::~HumanB(void)
 {
-	std::cout << "Human \"" << this->name << "\" was destroyed"
-		<< std::endl;
+	/*std::cout << "Human \"" << this->name << "\" was destroyed"
+		<< std::endl;*/
 }
 
-void	HumanB::attack(void)
+void	HumanB::attack(void) const
 {
 	if (!weapon)
 	{
@@ -32,7 +32,7 @@ void	HumanB::attack(void)
 			<< this->weapon->getType() << std::endl;
 }
 
-void	HumanB::setWeapon(Weapon weapon)
+void	HumanB::setWeapon(Weapon &weapon)
 {
 	this->weapon = &weapon;
 }
