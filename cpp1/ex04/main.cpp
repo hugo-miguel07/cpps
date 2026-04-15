@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 13:20:07 by htavares          #+#    #+#             */
-/*   Updated: 2026/04/15 15:04:57 by htavares         ###   ########.fr       */
+/*   Updated: 2026/04/15 19:01:02 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,51 +28,21 @@ std::string getFileName(char *av)
 	return (filename);
 }
 
-bool check_equality(std::string og, std::string comp)
-{
-	size_t idx = 0;
-
-	while (idx < comp.length() && og[idx])
-	{
-		if (og[idx] != comp[idx])
-			return (false);
-		idx++;
-	}
-	if (idx == comp.length())
-		return (true);
-	return (false);
-}
-
-void strcheck_replace(std::string &og, std::string comp, std::string repl)
-{
-	size_t idx = 0;
-
-	while (idx < og.length())
-	{
-		if (check_equality(&(og[idx]), comp))
-		{
-			size_t idxc = 0;
-			while (idxc < comp.length())
-			{
-				og[idxc] = repl[idxc];
-				idxc++;
-				if (idxc >= repl.length())
-					break ;
-			}
-		}
-		idx++;
-	}
-}
-
 void replaceFile(std::ifstream &og, std::ofstream &nf, char *s1, char *s2)
 {
 	std::string str1 = s1;
 	std::string str2 = s2;
 	std::string linha;
 
+	size_t idx;
 	while (std::getline(og, linha))
 	{
-		strcheck_replace(linha, str1, str2);
+		idx = 0;
+		while ((idx = linha.find(str1, idx)) != std::string::npos)
+		{
+			linha = linha.substr(0, idx) + str2 + linha.substr(idx + str1.length());
+			idx += str2.length();
+		}
 		nf << linha << std::endl;
 	}
 }
@@ -92,7 +62,7 @@ int	main(int ac, char **av)
 		return (file.close(), 1);
 		
 	std::string nfilename = getFileName(av[1]) + ".replace";
-	std::ofstream nfile(nfilename);
+	std::ofstream nfile(nfilename.c_str());
 
 	replaceFile(file, nfile, av[2], av[3]);
 	
