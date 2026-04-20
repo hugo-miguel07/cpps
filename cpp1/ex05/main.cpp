@@ -6,13 +6,13 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 13:20:07 by htavares          #+#    #+#             */
-/*   Updated: 2026/04/15 19:00:42 by htavares         ###   ########.fr       */
+/*   Updated: 2026/04/20 13:14:23 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-int	main()
+int	main(void)
 {
 	return (0);
 }
