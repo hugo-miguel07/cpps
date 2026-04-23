@@ -6,30 +6,22 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 13:20:07 by htavares          #+#    #+#             */
-/*   Updated: 2026/04/23 17:36:00 by htavares         ###   ########.fr       */
+/*   Updated: 2026/04/23 17:51:56 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-int	main(void)
+int	main(int ac, char **av)
 {
 	Harl harl;
 	
-	std::cout << "\n";
-	std::cout << "first test\n" << std::endl;
-	harl.complain("DEBUG");
-	std::cout << "\n";
-	std::cout << "second test\n" << std::endl;
-	harl.complain("INFO");
-	std::cout << "\n";
-	std::cout << "third test\n" << std::endl;
-	harl.complain("WARNING");
-	std::cout << "\n";
-	std::cout << "forth test\n" << std::endl;
-	harl.complain("ERROR");
-	std::cout << "\n";
-	std::cout << "fifth test\n" << std::endl;
-	harl.complain("nao existe");
+	if (ac != 2)
+	{
+		std::cout << "Wrong number of arguments :(" << std::endl;
+		return (1);
+	}
+	std::string arg = av[1];
+	harl.complain(arg);
 	return (0);
 }

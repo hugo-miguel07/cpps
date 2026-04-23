@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 19:00:16 by htavares          #+#    #+#             */
-/*   Updated: 2026/04/23 17:31:51 by htavares         ###   ########.fr       */
+/*   Updated: 2026/04/23 18:04:14 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,38 @@ void	Harl::error( void )
 
 void	Harl::complain(std::string level)
 {
-	typedef void (Harl::*t_func)();
-
-	t_func funcs[4] = {&Harl::debug, &Harl::info,
-						&Harl::warning, &Harl::error};
-
 	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
+	int index = -1;
 	for (int i = 0; i < 4; i++)
 	{
 		if (levels[i] == level)
-		{
-			(this->*(funcs[i]))();
-			return ;
-		}
+			index = i;
+	}
+	
+	switch (index)
+	{
+		case 0:
+			std::cout <<  "[ DEBUG ]" << std::endl;
+			this->debug();
+			std::cout <<  "\n";
+			index++;
+		case 1:
+			std::cout <<  "[ INFO ]" << std::endl;
+			this->info();
+			std::cout <<  "\n";
+			index++;
+		case 2:
+			std::cout <<  "[ WARNING ]" << std::endl;
+			this->warning();
+			std::cout <<  "\n";
+			index++;
+		case 3:
+			std::cout <<  "[ ERROR ]" << std::endl;
+			this->error();
+			std::cout <<  "\n";
+			break ;
+		default:
+			std::cout <<  "[ Harl is yapping again, dont mind him ]\n" << std::endl;
 	}
 }
