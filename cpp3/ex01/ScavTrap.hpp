@@ -1,28 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/27 09:40:29 by htavares          #+#    #+#             */
-/*   Updated: 2026/04/30 14:32:39 by htavares         ###   ########.fr       */
+/*   Created: 2026/04/30 16:32:10 by htavares          #+#    #+#             */
+/*   Updated: 2026/04/30 16:32:11 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-#include <iostream>
-
-int main( void ) 
-{
-Fixed a;
-Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-
-std::cout << a << std::endl;
-std::cout << ++a << std::endl;
-std::cout << a << std::endl;
-std::cout << a++ << std::endl;
-std::cout << a << std::endl;
-std::cout << b << std::endl;
-std::cout << Fixed::max( a, b ) << std::endl;
-}
