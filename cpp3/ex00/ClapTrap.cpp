@@ -35,6 +35,7 @@ ClapTrap::~ClapTrap()
 {
 	std::cout << "ClapTrap Destructor called" << std::endl;
 }
+
 ClapTrap::ClapTrap(const ClapTrap &f)
 {
 	*this = f;
