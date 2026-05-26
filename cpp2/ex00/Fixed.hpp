@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 09:40:27 by htavares          #+#    #+#             */
-/*   Updated: 2026/04/27 11:31:32 by htavares         ###   ########.fr       */
+/*   Updated: 2026/05/26 12:03:55 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Fixed
 	Fixed(const Fixed &f);
 	Fixed& operator=(const Fixed& f);
 	~Fixed();
-	int		getRawBits( void );
+	int		getRawBits( void ) const;
 	void	setRawBits( int const raw );
 };
 
