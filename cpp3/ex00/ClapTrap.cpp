@@ -6,12 +6,13 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 15:04:10 by htavares          #+#    #+#             */
-/*   Updated: 2026/04/30 16:31:54 by htavares         ###   ########.fr       */
+/*   Updated: 2026/05/26 16:25:16 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include <iostream>
+#include <climits>
 
 ClapTrap::ClapTrap(std::string name)
 {
@@ -35,10 +36,10 @@ ClapTrap::~ClapTrap()
 {
 	std::cout << "ClapTrap Destructor called" << std::endl;
 }
-
 ClapTrap::ClapTrap(const ClapTrap &f)
+: name(f.name), hp(f.hp), ep(f.ep), ad(f.ad)
 {
-	*this = f;
+	std::cout << "ClapTrap Copy Constructor called" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& f)
@@ -79,20 +80,20 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->hp == 0)
 	{
-		std::cout << "ClapTrap " << this->name
+		std::cout <<  this->name
 			<< " is dead :(" << std::endl;
 		return ;
 	}
 	if (this->hp <= amount)
 	{
-		std::cout << "ClapTrap " << this->name
+		std::cout << this->name
 			<< " takes " << amount << " of damage and dies :o"
 			<< std::endl;
 		this->hp = 0;
 	}
 	else
 	{
-		std::cout << "ClapTrap " << this->name
+		std::cout << this->name
 			<< " takes " << amount << " of damage!"
 			<< std::endl;
 		this->hp -= amount;
@@ -103,30 +104,24 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->hp == 0)
 	{
-		std::cout << "ClapTrap " << this->name
+		std::cout << this->name
 			<< " is dead :(" << std::endl;
 		return ;
 	}
 	if (this->ep > 0)
 	{
 		this->ep--;
-		unsigned long sum = hp + amount;
-		if (sum > CT_MAXHP)
-		{
-			std::cout << "ClapTrap " << this->name
-			<< " repairs itself for " << (unsigned int)(CT_MAXHP - this->hp)
-			<< " points of health!" << std::endl;
-			this->hp = CT_MAXHP;
-			return ;
-		}
-		std::cout << "ClapTrap " << this->name
+		std::cout << this->name
 			<< " repairs itself for " << amount
 			<< " points of health!" << std::endl;
-		this->hp += amount;
+		if ((static_cast<unsigned long long>(hp) + amount) >= UINT_MAX)
+			this->hp = UINT_MAX;
+		else
+			this->hp += amount;
 	}
 	else
 	{
-		std::cout << "ClapTrap " << this->name
+		std::cout << this->name
 			<< " has no energy left!" << std::endl;
 	}
 }
