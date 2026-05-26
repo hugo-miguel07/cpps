@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 16:32:08 by htavares          #+#    #+#             */
-/*   Updated: 2026/05/26 16:59:50 by htavares         ###   ########.fr       */
+/*   Updated: 2026/05/26 18:12:09 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 FragTrap::FragTrap( void ) : ClapTrap()
 {
 	std::cout << "FragTrap Default Constructor called" << std::endl;
-	ClapTrap::setName("Scavy");
+	ClapTrap::setName("Fraggy");
 	ClapTrap::setHp(100);
 	ClapTrap::setEp(100);
 	ClapTrap::setAd(30);

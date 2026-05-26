@@ -6,46 +6,44 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 15:04:15 by htavares          #+#    #+#             */
-/*   Updated: 2026/05/26 17:07:46 by htavares         ###   ########.fr       */
+/*   Updated: 2026/05/26 18:00:32 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
-#include "iostream"
+#include <iostream>
 
 int main( void )
 {
-	ClapTrap ct = ClapTrap("Milk Choccy");
-
+	DiamondTrap defaultTrap;
 	std::cout << std::endl;
 
-	ScavTrap st = ScavTrap("Dark Choccy");
-
+	DiamondTrap namedTrap("Dark Choccy");
 	std::cout << std::endl;
 
-	FragTrap ft = FragTrap("Dubai Choccy");
-
+	defaultTrap.attack("White Choccy");
+	namedTrap.attack("White Choccy");
 	std::cout << std::endl;
 
-	ct.attack("White Choccy");
-	st.attack("White Choccy");
-	ft.attack("White Choccy");
-
+	defaultTrap.whoAmI();
 	std::cout << std::endl;
-	
-	std::cout << "HP: " << ft.getHp() << std::endl;
-	std::cout << "EP: " << ft.getEp() << std::endl;
-	std::cout << "AD: " << ft.getAd() << std::endl;
-
-	ft.highFivesGuys();
-	ft.takeDamage(40);
-	ft.beRepaired(20);
-
-	std::cout << "HP: " << ft.getHp() << std::endl;
-	std::cout << "EP: " << ft.getEp() << std::endl;
-	std::cout << "AD: " << ft.getAd() << std::endl;
-
+	namedTrap.whoAmI();
 	std::cout << std::endl;
-	
+
+	DiamondTrap copyTrap(namedTrap);
+	copyTrap.whoAmI();
+	std::cout << std::endl;
+
+	DiamondTrap assignedTrap;
+	assignedTrap = namedTrap;
+	assignedTrap.whoAmI();
+	std::cout << std::endl;
+
+	namedTrap.ClapTrap::takeDamage(40);
+	namedTrap.ClapTrap::beRepaired(20);
+	std::cout << "HP: " << namedTrap.ClapTrap::getHp() << std::endl;
+	std::cout << "EP: " << namedTrap.ClapTrap::getEp() << std::endl;
+	std::cout << "AD: " << namedTrap.ClapTrap::getAd() << std::endl;
+
 	return (0);
 }
