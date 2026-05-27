@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 13:38:37 by htavares          #+#    #+#             */
-/*   Updated: 2026/05/27 14:38:03 by htavares         ###   ########.fr       */
+/*   Updated: 2026/05/27 15:07:36 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class WrongCat : public WrongAnimal
 	~WrongCat();
 	WrongCat(const WrongCat &c);
 	WrongCat& operator=(const WrongCat& c);
-	void WrongCat::makeSound( void ) const;
+	void makeSound( void ) const;
 };
 
 #endif
