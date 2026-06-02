@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 09:40:24 by htavares          #+#    #+#             */
-/*   Updated: 2026/04/30 14:55:20 by htavares         ###   ########.fr       */
+/*   Updated: 2026/06/02 18:02:23 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,13 @@ Fixed Fixed::operator+(const Fixed& f) const
 Fixed Fixed::operator++(int)
 {
 	Fixed previous(*this);
-	this->val += (1 << nfract);
+	this->val += 1;
 	return (previous);
 }
 
 Fixed &Fixed::operator++( void )
 {
-	this->val += (1 << nfract);
+	this->val += 1;
 	return (*this);
 }
 
@@ -87,13 +87,13 @@ Fixed Fixed::operator-(const Fixed& f) const
 Fixed Fixed::operator--( int )
 {
 	Fixed previous(*this);
-	this->val -= (1 << nfract);
+	this->val -= 1;
 	return (previous);
 }
 
 Fixed &Fixed::operator--( void )
 {
-	this->val -= (1 << nfract);
+	this->val -= 1;
 	return (*this);
 }
 

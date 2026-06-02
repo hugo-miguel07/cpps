@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 09:40:29 by htavares          #+#    #+#             */
-/*   Updated: 2026/05/26 12:04:00 by htavares         ###   ########.fr       */
+/*   Updated: 2026/06/02 17:45:47 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,12 @@ Fixed a;
 Fixed b( a );
 Fixed c;
 c = b;
+
 std::cout << a.getRawBits() << std::endl;
 std::cout << b.getRawBits() << std::endl;
+std::cout << c.getRawBits() << std::endl;
+
+c.setRawBits(255);
 std::cout << c.getRawBits() << std::endl;
 return 0;
 }
