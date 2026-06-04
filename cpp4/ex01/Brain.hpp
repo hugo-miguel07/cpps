@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/30 15:04:15 by htavares          #+#    #+#             */
-/*   Updated: 2026/06/04 18:26:22 by htavares         ###   ########.fr       */
+/*   Created: 2026/06/04 18:11:58 by htavares          #+#    #+#             */
+/*   Updated: 2026/06/04 18:33:41 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#include <string>
 
-int main( void )
+class Brain
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	delete j;//should not create a leak
-	delete i;
+	private:
+	std::string ideas[100];
+	unsigned int ideaidx;
+	
+	public:
+	Brain( void );
+	~Brain();
+	Brain(const Brain &a);
+	Brain& operator=(const Brain& a);
 
-	return 0;
-}
+	std::string *getIdeas( void ) const;
+	void setIdea(std::string idea);
+};
