@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 15:04:15 by htavares          #+#    #+#             */
-/*   Updated: 2026/05/26 17:04:21 by htavares         ###   ########.fr       */
+/*   Updated: 2026/06/08 15:05:15 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int main( void )
 	std::cout << "AD: " << ft.getAd() << std::endl;
 
 	std::cout << std::endl;
+
+	ft.highFivesGuys();
 	
 	return (0);
 }

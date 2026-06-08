@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 15:04:15 by htavares          #+#    #+#             */
-/*   Updated: 2026/05/26 16:00:11 by htavares         ###   ########.fr       */
+/*   Updated: 2026/06/08 15:01:42 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int main( void )
 	std::cout << "AD: " << st_dflt.getAd() << std::endl;
 
 	std::cout << std::endl;
+
+	st_dflt.guardGate();
 	
 	return (0);	
 }

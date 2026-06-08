@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 15:04:10 by htavares          #+#    #+#             */
-/*   Updated: 2026/05/26 16:25:47 by htavares         ###   ########.fr       */
+/*   Updated: 2026/06/08 15:08:33 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,26 +72,6 @@ unsigned int ClapTrap::getEp( void ) const
 unsigned int ClapTrap::getAd( void ) const
 {
 	return (this->ad);
-}
-
-void ClapTrap::setName(std::string const name)
-{
-	this->name = name;
-}
-
-void ClapTrap::setHp(unsigned int const hp)
-{
-	this->hp = hp;
-}
-
-void ClapTrap::setEp(unsigned int const ep)
-{
-	this->ep = ep;
-}
-
-void ClapTrap::setAd(unsigned int const ad)
-{
-	this->ad = ad;
 }
 
 void ClapTrap::attack(const std::string& target)

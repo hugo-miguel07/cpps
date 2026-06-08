@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 17:08:19 by htavares          #+#    #+#             */
-/*   Updated: 2026/05/26 18:06:06 by htavares         ###   ########.fr       */
+/*   Updated: 2026/06/08 15:17:51 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,21 @@
 #include <iostream>
 
 DiamondTrap::DiamondTrap(std::string name)
-: ClapTrap(), ScavTrap(), FragTrap(), name(name)
+: ClapTrap(name + "_clap_name"), ScavTrap(), FragTrap(), name(name)
 {
 	std::cout << "DiamondTrap Constructor called" << std::endl;
-	ClapTrap::setName(name + "_clap_name");
-	this->setHp(100);
-	this->setEp(50);
-	this->setAd(30);
+	this->hp = 100;
+	this->ep = 50;
+	this->ad = 30;
 }
 
 DiamondTrap::DiamondTrap( void )
-: ClapTrap(), ScavTrap(), FragTrap(), name("Rihanna")
+: ClapTrap("Rihanna_clap_name"), ScavTrap(), FragTrap(), name("Rihanna")
 {
 	std::cout << "DiamondTrap Default Constructor called" << std::endl;
-	ClapTrap::setName("Rihanna_clap_name");
-	this->setHp(100);
-	this->setEp(50);
-	this->setAd(30);
+	this->hp = 100;
+	this->ep = 50;
+	this->ad = 30;
 }
 
 DiamondTrap::~DiamondTrap()

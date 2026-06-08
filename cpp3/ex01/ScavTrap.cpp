@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 16:32:08 by htavares          #+#    #+#             */
-/*   Updated: 2026/05/26 16:05:57 by htavares         ###   ########.fr       */
+/*   Updated: 2026/06/08 14:59:04 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << "ScavTrap Constructor called" << std::endl;
-	ClapTrap::setHp(100);
-	ClapTrap::setEp(50);
-	ClapTrap::setAd(20);
+	this->hp = 100;
+	this->ep = 50;
+	this->ad = 20;
 }
 
 ScavTrap::ScavTrap( void ) : ClapTrap()
 {
 	std::cout << "ScavTrap Default Constructor called" << std::endl;
-	ClapTrap::setName("Scavy");
-	ClapTrap::setHp(100);
-	ClapTrap::setEp(50);
-	ClapTrap::setAd(20);
+	this->name = "Scavy";
+	this->hp = 100;
+	this->ep = 50;
+	this->ad = 20;
 }
 
 ScavTrap::~ScavTrap()
@@ -60,7 +60,7 @@ void ScavTrap::attack(const std::string &target)
 		std::cout << "ScavTrap " << this->getName()
 			<< " attacks " << target << ", causing "
 			<< this->getAd() << " points of damage!" << std::endl;
-		this->setEp(getEp() - 1);
+		this->ep = getEp() - 1;
 	}
 	else
 	{
