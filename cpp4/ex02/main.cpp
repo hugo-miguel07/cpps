@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/27 13:38:35 by htavares          #+#    #+#             */
-/*   Updated: 2026/06/08 15:38:37 by htavares         ###   ########.fr       */
+/*   Created: 2026/04/30 15:04:15 by htavares          #+#    #+#             */
+/*   Updated: 2026/06/08 17:26:52 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#include <iostream>
+#include "Dog.hpp"
+#include "Cat.hpp"
 
-# include "Animal.hpp"
-# include "Brain.hpp"
-
-class Dog : public Animal
+int main( void )
 {
-	private:
-	Brain *brain;
+	// AAnimal a;
 
-	public:
-	Dog( void );
-	~Dog();
-	Dog(const Dog &d);
-	Dog& operator=(const Dog& d);
-	void makeSound( void ) const;
-	void setIdea(const std::string &idea);
-	void printIdeas(void) const;
-};
+	const AAnimal* dog = new Dog();
+	const AAnimal* cat = new Cat();
 
-#endif
+	std::cout << std::endl;
+
+	std::cout << dog->getType() << std::endl;
+	dog->makeSound();
+
+	std::cout << cat->getType() << std::endl;
+	cat->makeSound();
+
+	std::cout << std::endl;
+
+	delete dog;
+	delete cat;
+
+	return 0;
+}

@@ -6,17 +6,17 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 13:37:45 by htavares          #+#    #+#             */
-/*   Updated: 2026/06/08 16:53:42 by htavares         ###   ########.fr       */
+/*   Updated: 2026/06/08 17:00:06 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include <iostream>
 
-Dog::Dog( void ) : Animal()
+Dog::Dog( void ) : AAnimal()
 {
 	std::cout << "Dog Default Constructor called" << std::endl;
-	Animal::type = "Dog";
+	AAnimal::type = "Dog";
 	this->brain = new Brain();
 }
 
@@ -26,7 +26,7 @@ Dog::~Dog()
 	delete this->brain;
 }
 
-Dog::Dog(const Dog &d) : Animal(d)
+Dog::Dog(const Dog &d) : AAnimal(d)
 {
 	std::cout << "Dog Copy Constructor called" << std::endl;
 	this->brain = new Brain(*d.brain);
@@ -36,7 +36,7 @@ Dog& Dog::operator=(const Dog& d)
 {
 	if (this != &d)
 	{
-		Animal::operator=(d);
+		AAnimal::operator=(d);
 		*this->brain = *d.brain;
 	}
 	return (*this);
@@ -45,21 +45,4 @@ Dog& Dog::operator=(const Dog& d)
 void Dog::makeSound( void ) const
 {
 	std::cout << "Woof Woof!" << std::endl;
-}
-
-void Dog::setIdea(const std::string &idea)
-{
-	this->brain->setIdea(idea);
-}
-
-void Dog::printIdeas(void) const
-{
-	std::string *ideas = this->brain->getIdeas();
-
-	for (int i = 0; i < 100; i++)
-	{
-		if (ideas[i].empty())
-			break ;
-		std::cout << "  idea[" << i << "]: " << ideas[i] << std::endl;
-	}
 }

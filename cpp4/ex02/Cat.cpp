@@ -6,17 +6,17 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 13:36:41 by htavares          #+#    #+#             */
-/*   Updated: 2026/06/08 16:04:32 by htavares         ###   ########.fr       */
+/*   Updated: 2026/06/08 17:00:04 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include <iostream>
 
-Cat::Cat( void ) : Animal()
+Cat::Cat( void ) : AAnimal()
 {
 	std::cout << "Cat Default Constructor called" << std::endl;
-	Animal::type = "Cat";
+	AAnimal::type = "Cat";
 	this->brain = new Brain();
 }
 
@@ -26,7 +26,7 @@ Cat::~Cat()
 	delete this->brain;
 }
 
-Cat::Cat(const Cat &c) : Animal(c)
+Cat::Cat(const Cat &c) : AAnimal(c)
 {
 	std::cout << "Cat Copy Constructor called" << std::endl;
 	this->brain = new Brain(*c.brain);
@@ -36,7 +36,7 @@ Cat& Cat::operator=(const Cat& c)
 {
 	if (this != &c)
 	{
-		Animal::operator=(c);
+		AAnimal::operator=(c);
 		*this->brain = *c.brain;
 	}
 	return (*this);
@@ -45,21 +45,4 @@ Cat& Cat::operator=(const Cat& c)
 void Cat::makeSound( void ) const
 {
 	std::cout << "Meoooow!" << std::endl;
-}
-
-void Cat::setIdea(const std::string &idea)
-{
-	this->brain->setIdea(idea);
-}
-
-void Cat::printIdeas(void) const
-{
-	std::string *ideas = this->brain->getIdeas();
-
-	for (int i = 0; i < 100; i++)
-	{
-		if (ideas[i].empty())
-			break ;
-		std::cout << "  idea[" << i << "]: " << ideas[i] << std::endl;
-	}
 }

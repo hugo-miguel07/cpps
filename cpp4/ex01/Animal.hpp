@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 13:38:33 by htavares          #+#    #+#             */
-/*   Updated: 2026/06/04 18:26:59 by htavares         ###   ########.fr       */
+/*   Updated: 2026/06/08 15:34:11 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define ANIMAL_HPP
 
 # include <string>
-# include <Brain.hpp>
 
 class Animal
 {
