@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 17:08:12 by htavares          #+#    #+#             */
-/*   Updated: 2026/06/25 14:28:33 by htavares         ###   ########.fr       */
+/*   Updated: 2026/06/25 15:21:32 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ class AForm
 	int getGradeSign() const;
 	int getGradeExec() const;
 
-	virtual bool beSigned(Bureaucrat &b);
+	bool beSigned(Bureaucrat &b);
 	virtual bool execute(Bureaucrat const & executor) const = 0;
 };
 

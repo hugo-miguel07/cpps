@@ -6,11 +6,12 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 14:17:58 by htavares          #+#    #+#             */
-/*   Updated: 2026/06/25 14:43:55 by htavares         ###   ########.fr       */
+/*   Updated: 2026/06/25 15:25:25 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
 
 class ShruberryCreationForm : public AForm
 {
