@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/24 17:08:12 by htavares          #+#    #+#             */
-/*   Updated: 2026/06/25 13:13:47 by htavares         ###   ########.fr       */
+/*   Created: 2026/06/20 17:54:20 by htavares          #+#    #+#             */
+/*   Updated: 2026/06/25 14:28:29 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,13 @@
 #include <exception>
 #include <ostream>
 #include <string>
+#include "AForm.hpp"
 
-class Bureaucrat;
-
-class Form
+class Bureaucrat
 {
 	private:
 	const std::string	name;
-	bool				signStatus;
-	const int			gradeSign;
-	const int			gradeExec;
+	int					grade;
 
 	public:
 
@@ -42,19 +39,19 @@ class Form
 	};
 
 	//class methods
-	Form(void);
-	Form(const std::string &name, int gradeSign, int gradeExec);
-	~Form();
-	Form(const Form &b);
-	Form &operator=(const Form &b);
+	Bureaucrat(void);
+	Bureaucrat(const std::string &name, int grade);
+	~Bureaucrat();
+	Bureaucrat(const Bureaucrat &b);
+	Bureaucrat &operator=(const Bureaucrat &b);
 
 	std::string	getName() const;
-	bool getSignStatus() const;
-	int getGradeSign() const;
-	int getGradeExec() const;
+	int getGrade() const;
 
-	bool beSigned(Bureaucrat &b);
+	void addGrade();
+	void takeGrade();
+	void signForm(AForm &f);
 	
 };
 
-std::ostream &operator<<(std::ostream &out, const Form &b);
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &b);

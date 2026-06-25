@@ -1,7 +1,9 @@
 NAME = Form
 CXX = c++
 FLAGS = -g -Wall -Werror -Wextra -std=c++98
-SRCS = Form.cpp Bureaucrat.cpp main.cpp
+SRCS = AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp \
+		ShruberryCreationForm.cpp Bureaucrat.cpp main.cpp
+
 OBJS= $(SRCS:.cpp=.o)
 
 all: $(NAME)

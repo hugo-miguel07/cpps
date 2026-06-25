@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 17:08:12 by htavares          #+#    #+#             */
-/*   Updated: 2026/06/25 13:13:47 by htavares         ###   ########.fr       */
+/*   Updated: 2026/06/25 14:28:33 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	private:
 	const std::string	name;
@@ -42,19 +42,19 @@ class Form
 	};
 
 	//class methods
-	Form(void);
-	Form(const std::string &name, int gradeSign, int gradeExec);
-	~Form();
-	Form(const Form &b);
-	Form &operator=(const Form &b);
+	AForm(void);
+	AForm(const std::string &name, int gradeSign, int gradeExec);
+	virtual ~AForm();
+	AForm(const AForm &b);
+	AForm &operator=(const AForm &b);
 
 	std::string	getName() const;
 	bool getSignStatus() const;
 	int getGradeSign() const;
 	int getGradeExec() const;
 
-	bool beSigned(Bureaucrat &b);
-	
+	virtual bool beSigned(Bureaucrat &b);
+	virtual bool execute(Bureaucrat const & executor) const = 0;
 };
 
-std::ostream &operator<<(std::ostream &out, const Form &b);
+std::ostream &operator<<(std::ostream &out, const AForm &b);

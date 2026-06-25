@@ -6,35 +6,14 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 17:53:00 by htavares          #+#    #+#             */
-/*   Updated: 2026/06/25 13:08:03 by htavares         ###   ########.fr       */
+/*   Updated: 2026/06/25 14:28:24 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Bureaucrat.hpp"
 
 int main(void)
 {
-	try
-	{
-		Bureaucrat bob("Bob", 5);
-		Bureaucrat alice("Alice", 150);
-		std::cout << bob << std::endl;
-		std::cout << alice << std::endl;
-
-		Form form1("TaxForm", 10, 20);
-		Form form2("SecretForm", 2, 5);
-		std::cout << form1 << std::endl;
-
-		bob.signForm(form1);
-		bob.signForm(form2);
-
-		Form invalid("Invalid", 200, 300);
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << "Error: " << e.what() << std::endl;
-	}
 
 	return (0);
 }

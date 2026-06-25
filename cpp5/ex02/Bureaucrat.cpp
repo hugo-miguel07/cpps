@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 17:53:47 by htavares          #+#    #+#             */
-/*   Updated: 2026/06/25 12:54:33 by htavares         ###   ########.fr       */
+/*   Updated: 2026/06/25 14:29:27 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void Bureaucrat::takeGrade()
 	this->grade++;
 }
 
-void Bureaucrat::signForm(Form &f)
+void Bureaucrat::signForm(AForm &f)
 {
 	if (f.beSigned(*this))
 		std::cout << "Bureaucrat " << this->name

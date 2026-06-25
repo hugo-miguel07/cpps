@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 17:54:20 by htavares          #+#    #+#             */
-/*   Updated: 2026/06/24 15:49:55 by htavares         ###   ########.fr       */
+/*   Updated: 2026/06/25 13:13:55 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <exception>
 #include <ostream>
 #include <string>
+#include "Form.hpp"
 
 class Bureaucrat
 {
@@ -49,6 +50,7 @@ class Bureaucrat
 
 	void addGrade();
 	void takeGrade();
+	void signForm(Form &f);
 	
 };
 
