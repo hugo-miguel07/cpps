@@ -41,6 +41,12 @@ class AForm
 		virtual const char *what() const throw();
 	};
 
+	class UnsignedFormException : public std::exception
+	{
+		public:
+		virtual const char *what() const throw();
+	};
+
 	//class methods
 	AForm(void);
 	AForm(const std::string &name, int gradeSign, int gradeExec);

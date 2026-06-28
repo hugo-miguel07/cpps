@@ -16,7 +16,7 @@
 class ShruberryCreationForm : public AForm
 {
 	private:
-	const std::string target;
+	std::string target;
 	
 	public:
 	ShruberryCreationForm(void);
