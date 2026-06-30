@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 17:53:47 by htavares          #+#    #+#             */
-/*   Updated: 2026/06/25 12:54:33 by htavares         ###   ########.fr       */
+/*   Updated: 2026/06/30 12:21:08 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ void Bureaucrat::signForm(Form &f)
 {
 	if (f.beSigned(*this))
 		std::cout << "Bureaucrat " << this->name
-			<<" signed Form" << f.getName() << std::endl;
+			<<" signed Form " << f.getName() << std::endl;
 	else
 	 	std::cout << "Bureaucrat " << this->name
-			<<" couldn't sign Form" << f.getName()
+			<<" couldn't sign Form " << f.getName()
 			<< " because Grade is Too Low!" << std::endl;
 }
 
