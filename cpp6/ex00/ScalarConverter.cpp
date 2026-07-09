@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: htavares <htavares@student.42.fr>          #+#  +:+       +#+        */
+/*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-07-07 13:14:13 by htavares          #+#    #+#             */
-/*   Updated: 2026-07-07 13:14:13 by htavares         ###   ########.fr       */
+/*   Created: 2026/07/07 13:14:13 by htavares          #+#    #+#             */
+/*   Updated: 2026/07/09 18:16:29 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include <iostream>
+#include <sstream>
 
 ScalarConverter::ScalarConverter()
 {}
@@ -51,21 +52,68 @@ static bool isint(std::string const &unconverted)
 			return (false);
 		i++;
 	}
+	std::stringstream ss(unconverted);
+	int num;
+	if (!(ss >> num))
+		return (false);
 	return (true);
 }
 
 static bool isfloat(std::string const &unconverted)
 {
-	
+	size_t	i;
+
+	i = 0;
+	if (unconverted[i] == '+' || unconverted[i] == '-')
+		i++;
+	if (i >= unconverted.length())
+		return (false);
+	while (i < unconverted.length())
+	{
+		if (!isdigit(unconverted[i]) && (unconverted[i] != 'f'))
+			return (false);
+		i++;
+	}
+	if (unconverted[i] != 'f')
+		return (false);
+	while (i < unconverted.length())
+	{
+		if (!isdigit(unconverted[i]))
+			return (false);
+		i++;
+	}
+	std::stringstream ss(unconverted);
+	float num;
+	if (!(ss >> num))
+		return (false);
+	return (true);
 }
 
 static bool isdouble(std::string const &unconverted)
 {
-	
+	size_t	i;
+
+	i = 0;
+	if (unconverted[i] == '+' || unconverted[i] == '-')
+		i++;
+	if (i >= unconverted.length())
+		return (false);
+	while (i < unconverted.length())
+	{
+		if (!isdigit(unconverted[i]))
+			return (false);
+		i++;
+	}
+	std::stringstream ss(unconverted);
+	double num;
+	if (!(ss >> num))
+		return (false);
+	return (true);
 }
 
 static void pseudoconv(std::string const &unconverted)
 {
+	
 }
 
 static void charconv(std::string const &unconverted)
@@ -100,7 +148,7 @@ void ScalarConverter::convert(std::string const &unconverted)
 
 	if (ispseudo(unconverted))
 		pseudoconv(unconverted);
-	if (ischar(unconverted))
+	else if (ischar(unconverted))
 		charconv(unconverted);
 	else if (isint(unconverted))
 		intconv(unconverted);
