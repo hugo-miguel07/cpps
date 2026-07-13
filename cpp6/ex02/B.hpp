@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htavares <htavares@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-07-06 11:55:39 by htavares          #+#    #+#             */
-/*   Updated: 2026-07-06 11:55:39 by htavares         ###   ########.fr       */
+/*   Created: 2026-07-13 14:54:26 by htavares          #+#    #+#             */
+/*   Updated: 2026-07-13 14:54:26 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
-#include "Base.hpp"
-#include "utils.hpp"
-#include <iostream>
-#include <cstdlib>
+#pragma once
 
-int main(void)
-{
-	Base *type = generate();
-	std::cout << "Using pointer: ";
-	identify(type);
-	std::cout << "Using reference: ";
-	identify(*type);
-	delete type;
-	
-	return (0);
-}
+#include "Base.hpp"
+
+class B: public Base
+{};
