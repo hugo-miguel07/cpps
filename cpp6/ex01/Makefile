@@ -1,12 +1,12 @@
-NAME: ScalarConv
+NAME = Serializer
 
-CXX: c++
+CXX = c++
 
-FLAGS: -Wall -Werror -Wextra -std=c++98
+FLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS: main.cpp
+SRCS = main.cpp Serializer.cpp
 
-OBJS: $(SRCS:.cpp=.o)
+OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
