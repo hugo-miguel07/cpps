@@ -5,27 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: htavares <htavares@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-07-06 11:55:39 by htavares          #+#    #+#             */
-/*   Updated: 2026-07-06 11:55:39 by htavares         ###   ########.fr       */
+/*   Created: 2026-07-13 16:58:37 by htavares          #+#    #+#             */
+/*   Updated: 2026-07-13 16:58:37 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
-#include "Base.hpp"
-#include "utils.hpp"
-#include <iostream>
-#include <cstdlib>
-
-int main(void)
-{
-	Base *b = generate();
-	std::cout << "Using pointer: ";
-	identify(b);
-	std::cout << "Using reference: ";
-	identify(*b);
-	delete b;
-	
-	return (0);
-}
