@@ -10,3 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "iter.hpp"
+
+int main(void)
+{
+	int array[] = {0, 1, 2};
+	
+	::iter(array, 3, Print<int>);
+
+	std::string string[] = {"ola", "hello", "adeus"};
+	
+	::iter(string, 3, Print<std::string>);
+		
+	int const constarray[] = {0, 1, 2};
+	
+	::iter(constarray, 3, Print<int>);
+
+	char a[] = {'a', 'b', 'c'};
+	
+	::iter(a, 3, Print<char>);
+
+	return (0);
+}
