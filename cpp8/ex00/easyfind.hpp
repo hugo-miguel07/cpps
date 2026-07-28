@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/27 13:57:08 by htavares          #+#    #+#             */
-/*   Updated: 2026/07/28 20:51:00 by htavares         ###   ########.fr       */
+/*   Created: 2026/07/28 20:29:01 by htavares          #+#    #+#             */
+/*   Updated: 2026/07/28 20:50:44 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
-#include <iostream>
+#pragma once
 
-const char *NotFoundException::what() const throw()
+#include <exception>
+#include <algorithm>
+
+class NotFoundException : public std::exception
 {
-	return ("Number not found in the container");
-}
+	public:
+		virtual const char *what() const throw();
+};
 
-int main(void)
+template<typename T>
+T easyfind(T container, int num)
 {
-
-	return (0);
+	if (std::find(container.begin(), container.end(), num) == container.end())
+		throw NotFoundException;
 }
