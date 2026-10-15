@@ -6,7 +6,7 @@
 /*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 13:14:13 by htavares          #+#    #+#             */
-/*   Updated: 2026/07/09 18:16:29 by htavares         ###   ########.fr       */
+/*   Updated: 2026/10/15 14:27:28 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,26 +69,28 @@ static bool isint(std::string const &unconverted)
 static bool isfloat(std::string const &unconverted)
 {
 	size_t	i;
+	size_t	digits;
+	size_t	dots;
 
+	if (unconverted.length() < 3 || unconverted[unconverted.length() - 1] != 'f')
+		return (false);
 	i = 0;
 	if (unconverted[i] == '+' || unconverted[i] == '-')
 		i++;
-	if (i >= unconverted.length())
-		return (false);
-	while (i < unconverted.length())
+	digits = 0;
+	dots = 0;
+	while (i < unconverted.length() - 1)
 	{
-		if (!isdigit(unconverted[i]) && (unconverted[i] != 'f'))
+		if (isdigit(unconverted[i]))
+			digits++;
+		else if (unconverted[i] == '.')
+			dots++;
+		else
 			return (false);
 		i++;
 	}
-	if (unconverted[i] != 'f')
+	if (digits == 0 || dots != 1)
 		return (false);
-	while (i < unconverted.length())
-	{
-		if (!isdigit(unconverted[i]))
-			return (false);
-		i++;
-	}
 	std::stringstream ss(unconverted);
 	float num;
 	if (!(ss >> num))
@@ -99,18 +101,28 @@ static bool isfloat(std::string const &unconverted)
 static bool isdouble(std::string const &unconverted)
 {
 	size_t	i;
+	size_t	digits;
+	size_t	dots;
 
+	if (unconverted.length() < 2)
+		return (false);
 	i = 0;
 	if (unconverted[i] == '+' || unconverted[i] == '-')
 		i++;
-	if (i >= unconverted.length())
-		return (false);
+	digits = 0;
+	dots = 0;
 	while (i < unconverted.length())
 	{
-		if (!isdigit(unconverted[i]))
+		if (isdigit(unconverted[i]))
+			digits++;
+		else if (unconverted[i] == '.')
+			dots++;
+		else
 			return (false);
 		i++;
 	}
+	if (digits == 0 || dots != 1)
+		return (false);
 	std::stringstream ss(unconverted);
 	double num;
 	if (!(ss >> num))

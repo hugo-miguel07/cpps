@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: htavares <htavares@student.42.fr>          #+#  +:+       +#+        */
+/*   By: htavares <htavares@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-07-06 11:55:35 by htavares          #+#    #+#             */
-/*   Updated: 2026-07-06 11:55:35 by htavares         ###   ########.fr       */
+/*   Created: 2026/07/06 11:55:35 by htavares          #+#    #+#             */
+/*   Updated: 2026/10/15 14:51:21 by htavares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ int main (void)
 	Data *ptr = &fruits;
 	std::cout << "Original pointer: " << ptr << std::endl;
 	std::cout << "Original data: apples=" << ptr->apples << ", oranges="
-		<< ptr->oranges << ", " << "bananas," << ptr->bananas<< std::endl;
+		<< ptr->oranges << ", " << "bananas=" << ptr->bananas<< std::endl;
 	
 	uintptr_t raw = Serializer::serialize(ptr);
 	std::cout << "\nSerialized (as number): " << raw << std::endl;
 
 	Data *result = Serializer::deserialize(raw);
 	std::cout << "\nDeserialized pointer: " << result << std::endl;
-	std::cout << "Deserialized data: " << ptr->apples << ", oranges="
-		<< ptr->oranges << ", " << "bananas," << ptr->bananas<< std::endl;
+	std::cout << "Deserialized data: apples=" << result->apples << ", oranges="
+		<< result->oranges << ", " << "bananas=" << result->bananas<< std::endl;
 
 	if (ptr == result)
 		std::cout << "Both pointers are equal! :)" << std::endl;
